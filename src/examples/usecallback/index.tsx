@@ -1,15 +1,24 @@
 import React, { useCallback, useState } from "react";
 import CartTable from "./CartTable";
+type Item = {
+  name: string;
+  quantity: number;
+  inStock: boolean;
+};
 
-const CallBackDemo = ({ items }) => {
+type CartTableProps = {
+  items: Item[];
+};
+
+const CallBackDemo: React.FC<CartTableProps> = ({ items }) => {
   const [count, setCount] = useState(0);
 
-  const inStockItems = useCallback(
+  const inStockItems: Item[] = useCallback(
     () => items.filter((item) => item.inStock),
     [items],
   );
 
-  const outOfStockItems = useCallback(
+  const outOfStockItems: Item[] = useCallback(
     () => items.filter((item) => !item.inStock),
     [items],
   );

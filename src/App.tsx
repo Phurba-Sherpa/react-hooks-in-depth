@@ -1,4 +1,4 @@
-import Clock from "./examples/clock";
+import DarkModeToggler from "./examples/use-effect";
 const ITEMS = [
   { name: "Apple", quantity: 3, inStock: true },
   { name: "Banana", quantity: 2, inStock: false },
@@ -21,7 +21,7 @@ const ITEMS = [
 function App() {
   return (
     <div>
-      <Clock />
+      <DarkModeToggler />
     </div>
   );
 }

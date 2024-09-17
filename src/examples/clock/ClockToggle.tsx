@@ -1,7 +1,11 @@
 import React, { memo } from "react";
 
-const ClockToggle = ({ handleToggle }) => {
-  console.log("toggle clock rendered");
+type ClockToggleProps = {
+  handleToggle: () => void;
+};
+
+const ClockToggle: React.FC<ClockToggleProps> = ({ handleToggle }) => {
   return <button onClick={handleToggle}>Toggle clock</button>;
 };
+
 export default memo(ClockToggle);
