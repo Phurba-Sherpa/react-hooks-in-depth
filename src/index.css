@@ -41,9 +41,6 @@
 }
 
 body {
-  max-width: 1080px;
   color: #444;
-  width: 90%;
-  margin-inline: auto;
   font-family: "Lora", system-ui;
 }
