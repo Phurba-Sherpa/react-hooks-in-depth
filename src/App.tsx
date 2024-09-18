@@ -1,29 +1,52 @@
-import DarkModeToggler from "./examples/use-effect";
-const ITEMS = [
-  { name: "Apple", quantity: 3, inStock: true },
-  { name: "Banana", quantity: 2, inStock: false },
-  { name: "Orange", quantity: 5, inStock: true },
-  { name: "Milk", quantity: 1, inStock: true },
-  { name: "Bread", quantity: 0, inStock: false },
-  { name: "Eggs", quantity: 12, inStock: true },
-  { name: "Cheese", quantity: 4, inStock: true },
-  { name: "Chicken Breast", quantity: 2, inStock: false },
-  { name: "Rice", quantity: 10, inStock: true },
-  { name: "Coffee", quantity: 1, inStock: true },
-  { name: "Yogurt", quantity: 6, inStock: true },
-  { name: "Pasta", quantity: 3, inStock: false },
-  { name: "Tomatoes", quantity: 8, inStock: true },
-  { name: "Lettuce", quantity: 0, inStock: false },
-  { name: "Olive Oil", quantity: 1, inStock: true },
-  { name: "Butter", quantity: 2, inStock: true },
-];
+import React from "react";
+import { Footer, Header } from "./components/ui/partials";
 
 function App() {
   return (
-    <div>
-      <DarkModeToggler />
+    <div className="h-screen flex flex-col ">
+      <Header />
+      <main className="grid grid-cols-3 gap-4 mb-auto">
+        {examples.map((example) => (
+          <Example
+            key={example.title}
+            title={example.title}
+            tags={example.tags}
+            desc={example.desc}
+          />
+        ))}
+      </main>
+      <Footer />
     </div>
   );
 }
 
+const Example: React.FC<ExampleProps> = ({ title, tags, desc }) => {
+  return (
+    <div className="border border-gray-200 p-4 rounded-md">
+      <a href="#">
+        <h4 className="mb-1">{title}</h4>
+        <div className="flex gap-x-2 mb-4">
+          {tags.map((tag) => (
+            <p key={tag}>{tag}</p>
+          ))}
+        </div>
+        <p className="line-clamp-3 ">{desc}</p>
+      </a>
+    </div>
+  );
+};
+
+type ExampleProps = {
+  title: string;
+  tags: string[];
+  desc: string;
+};
+
+const examples: ExampleProps[] = [
+  {
+    title: "Intersection observer",
+    tags: ["useEffect", "useRef"],
+    desc: "This section teaches how to use dom element that react doesn't have control over and also how to attach and remove the event listner for performant react application",
+  },
+];
 export default App;
