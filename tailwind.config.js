@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         lora: "Lora, system-ui",
+        lato: "Lato, sans-serif",
       },
     },
   },

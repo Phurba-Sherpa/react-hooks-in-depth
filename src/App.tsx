@@ -3,6 +3,7 @@ import AppLayout from "./components/layout";
 import MainPage from "./pages/Main";
 import IntersectionObserver from "./examples/use-effect/IntersectionObserver";
 import Clock from "./examples/clock";
+import MousePosition from "./examples/use-effect/MousePosition";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/clock-timer",
         element: <Clock />,
+      },
+      {
+        path: "/cursor-position",
+        element: <MousePosition />,
       },
     ],
   },

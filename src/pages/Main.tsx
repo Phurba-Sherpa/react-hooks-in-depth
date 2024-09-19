@@ -9,7 +9,7 @@ function MainPage() {
           key={example.title}
           title={example.title}
           tags={example.tags}
-          desc={example.desc}
+          topics={example.topics}
           path={example.path}
         />
       ))}
@@ -17,7 +17,7 @@ function MainPage() {
   );
 }
 
-const Example: React.FC<ExampleProps> = ({ title, tags, desc, path }) => {
+const Example: React.FC<ExampleProps> = ({ title, tags, topics, path }) => {
   return (
     <div className="border border-black/10 p-4 rounded-md">
       <Link to={path}>
@@ -32,7 +32,13 @@ const Example: React.FC<ExampleProps> = ({ title, tags, desc, path }) => {
             </p>
           ))}
         </div>
-        <p className="line-clamp-3 ">{desc}</p>
+        <ul className="">
+          {topics.map((topic) => (
+            <li className="before:content-['▹'] before:block before:text-slate-900 flex items-start gap-x-1 text-sm">
+              {topic}
+            </li>
+          ))}
+        </ul>
       </Link>
     </div>
   );
@@ -41,7 +47,7 @@ const Example: React.FC<ExampleProps> = ({ title, tags, desc, path }) => {
 type ExampleProps = {
   title: string;
   tags: string[];
-  desc: string;
+  topics: string[];
   path: string;
 };
 
@@ -49,14 +55,32 @@ const examples: ExampleProps[] = [
   {
     title: "Intersection observer",
     tags: ["useEffect", "useRef"],
-    desc: "This section teaches how to use dom element that react doesn't have control over and also how to attach and remove the event listner for performant react application",
+    topics: [
+      "Attched event listeners get stacked up",
+      "How to cleanup the event listners",
+    ],
     path: "/intersection-observer",
   },
   {
     title: "Clock Timer",
     tags: ["useEffect", "useCallback"],
-    desc: "This section teaches how to use useCallback, useEffect for and useEffect cleanup, to make your app performant",
+    topics: [
+      "useMemo",
+      "Memo",
+      "Effective way to pass function as a prop",
+      "useCallback",
+    ],
     path: "/clock-timer",
+  },
+  {
+    title: "Cursor Position Tracker",
+    tags: ["useEffect cleanup", "useEffect"],
+    topics: [
+      "Event listeners attached to DOM stacks up if not handle properly",
+      "Event listeners alive event after component unmount and continues to consume processes",
+      "useEffect cleanup comes to rescue",
+    ],
+    path: "cursor-position",
   },
 ];
 export default MainPage;
