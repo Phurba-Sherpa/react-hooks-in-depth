@@ -55,6 +55,10 @@ const Toasty = () => {
     });
 
     observer.observe(toastyRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (

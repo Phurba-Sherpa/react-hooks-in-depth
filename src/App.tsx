@@ -4,6 +4,7 @@ import MainPage from "./pages/Main";
 import IntersectionObserver from "./examples/use-effect/IntersectionObserver";
 import Clock from "./examples/clock";
 import MousePosition from "./examples/use-effect/MousePosition";
+import MediaPlayer from "./examples/MediaPlayer";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/cursor-position",
         element: <MousePosition />,
+      },
+      {
+        path: "/media-player",
+        element: <MediaPlayer />,
       },
     ],
   },

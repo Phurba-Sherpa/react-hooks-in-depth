@@ -11,6 +11,12 @@ const MousePosition = () => {
         Toggle mouse tracker
       </button>
       {trackMouse && <MouseTracker />}
+      <p className="max-w-[50ch] mt-4 p-4 rounded-md bg-yellow-50 text-yellow-700 ">
+        <span className="font-semibold  mr-2 ">Note:</span>
+        If effect's dependency changes then before remouting, it runs the
+        cleanup function of the previous effect, if provided any before
+        remouting a new one.
+      </p>
     </div>
   );
 };

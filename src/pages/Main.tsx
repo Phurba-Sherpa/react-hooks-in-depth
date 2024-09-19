@@ -21,7 +21,7 @@ const Example: React.FC<ExampleProps> = ({ title, tags, topics, path }) => {
   return (
     <div className="border border-black/10 p-4 rounded-md">
       <Link to={path}>
-        <h4 className="mb-1">{title}</h4>
+        <h4 className="mb-2">{title}</h4>
         <div className="flex gap-x-2 mb-4">
           {tags.map((tag) => (
             <p
@@ -32,9 +32,12 @@ const Example: React.FC<ExampleProps> = ({ title, tags, topics, path }) => {
             </p>
           ))}
         </div>
+        <p className="font-medium text-gray-700 text-lg mb-2">
+          Topics convered:
+        </p>
         <ul className="">
           {topics.map((topic) => (
-            <li className="before:content-['▹'] before:block before:text-slate-900 flex items-start gap-x-1 text-sm">
+            <li className="before:content-['▹'] before:block before:text-slate-900 flex items-start gap-x-1 text-sm align-baseline">
               {topic}
             </li>
           ))}
@@ -81,6 +84,15 @@ const examples: ExampleProps[] = [
       "useEffect cleanup comes to rescue",
     ],
     path: "cursor-position",
+  },
+  {
+    title: "Media Player",
+    tags: ["synchronization", "useRef"],
+    topics: [
+      "Synchronize two different values",
+      "Escape hatch to access the stale state",
+    ],
+    path: "media-player",
   },
 ];
 export default MainPage;
