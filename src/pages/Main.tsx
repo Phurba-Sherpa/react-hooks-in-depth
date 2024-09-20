@@ -91,6 +91,7 @@ const examples: ExampleProps[] = [
     topics: [
       "Synchronize two different values",
       "Escape hatch to access the stale state",
+      "Event bubbling",
     ],
     path: "media-player",
   },
