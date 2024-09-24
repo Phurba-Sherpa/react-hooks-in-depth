@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useMousePosition } from "./useMousePosition";
 
 const MousePosition = () => {
   const [trackMouse, setTrackMouse] = useState(true);
@@ -22,28 +23,10 @@ const MousePosition = () => {
 };
 
 const MouseTracker = () => {
-  const [position, setPosition] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
-
-  React.useEffect(() => {
-    const _handleMouseMove = (event: MouseEvent) => {
-      setPosition({
-        x: event.clientX,
-        y: event.clientY,
-      });
-    };
-
-    window.addEventListener("mousemove", _handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", _handleMouseMove);
-    };
-  }, []);
+  const { mousePosition } = useMousePosition();
   return (
     <p className="text-4xl font-lato itallic font-semibold">
-      {position.x}/{position.y}
+      {mousePosition.x}/{mousePosition.y}
     </p>
   );
 };
