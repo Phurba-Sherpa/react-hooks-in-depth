@@ -95,5 +95,14 @@ const examples: ExampleProps[] = [
     ],
     path: "media-player",
   },
+  {
+    title: "Box visibility",
+    tags: ["observer", "useRef", "custom hooks"],
+    topics: [
+      "How to observe for element visibility",
+      "How to expose hooks that support ref",
+    ],
+    path: "element-visibility",
+  },
 ];
 export default MainPage;

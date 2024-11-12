@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useIsOnscreen } from "../../hooks/use-is-onscreen";
 
 const IntersectionObserverComp = () => {
   return (
@@ -45,26 +46,12 @@ const IntersectionObserverComp = () => {
 };
 
 const Toasty = () => {
-  const [showToasty, setShowToasty] = useState(false);
-  const toastyRef = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      setShowToasty(entry.isIntersecting);
-    });
-
-    observer.observe(toastyRef.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const { isOnscreen, wrapperRef } = useIsOnscreen();
 
   return (
-    <div ref={toastyRef} className="relative pointer-events-none ">
+    <div ref={wrapperRef} className="relative pointer-events-none ">
       <p
-        className={`transition-all durtion-200 text-[200px] font-extralight absolute right-0 bottom-0 ${showToasty ? "translate-x-0" : "translate-x-full"}`}
+        className={`transition-all durtion-200 text-[200px] font-extralight absolute right-0 bottom-0 ${isOnscreen ? "translate-x-0" : "translate-x-full"}`}
       >
         ☠️
       </p>

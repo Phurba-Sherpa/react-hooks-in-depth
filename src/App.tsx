@@ -5,6 +5,7 @@ import IntersectionObserver from "./examples/use-effect/IntersectionObserver";
 import Clock from "./examples/clock";
 import MousePosition from "./examples/use-effect/MousePosition";
 import MediaPlayer from "./examples/MediaPlayer";
+import BoxVisibility from './examples/BoxVisibility';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/media-player",
         element: <MediaPlayer />,
+      },
+      {
+        path: "/element-visibility",
+        element: <BoxVisibility />,
       },
     ],
   },
